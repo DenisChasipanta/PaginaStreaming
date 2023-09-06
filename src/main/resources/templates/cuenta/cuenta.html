@@ -60,9 +60,8 @@
             <td th:text="${cuenta.username}"></td>
             <td th:text="${cuenta.password}"></td>
             <td th:text="${cuenta.rol}"></td>
-            <td></td>
-            <td></td>
-            <!--<td th:text="${cuenta.persona.id}"></td>-->
+            <td th:text="${cuenta.creacion}"></td>
+            <td th:text="${cuenta.persona.id}"></td>
             <td>
                 <a th:href="@{/cuenta/editar/} + ${cuenta.id}" class="btn btn-success">Editar</a>
                 <a th:href="@{/cuenta/eliminar/} + ${cuenta.id}" class="btn btn-danger">Eliminar</a>
