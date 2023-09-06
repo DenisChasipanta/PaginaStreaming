@@ -26,7 +26,7 @@ public class PersonaControlador {
     @GetMapping("/persona/form")
     public String formulario(Model model){
         model.addAttribute("persona",new Persona());
-        return "/persona/formulario";
+        return "persona/formulario";
     }
     @PostMapping("/persona/form")
     public String crearPersona(Persona persona){
@@ -35,7 +35,7 @@ public class PersonaControlador {
     }
     //CRUD-UPDATE-PUT
     @GetMapping("persona/editar/{id}")
-    public String editar(@PathVariable int id, Model model){
+    public String editar(@PathVariable Integer id, Model model){
         Optional<Persona> personas = personaRepositorio.findById(id);
         model.addAttribute("personas", personas);
         return "redirect:/persona/form";

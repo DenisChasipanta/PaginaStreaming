@@ -18,7 +18,7 @@
         </div>
         <div class="mb-3">
             <label >Usuario:</label>
-            <input type="text" class="form-control" placeholder="Enter usuario" th:field="*{usuario}">
+            <input type="text" class="form-control" placeholder="Enter usuario" th:field="*{username}">
         </div>
         <div class="mb-3">
             <label >Password:</label>
@@ -29,14 +29,19 @@
             <input type="date" class="form-control" placeholder="Enter fecha de registro" th:field="*{creacion}">
         </div>
         <div class="mb-3">
+            <label >Rol:</label>
+            <input type="text" class="form-control" placeholder="Enter rol" th:field="*{rol}">
+        </div>
+        <div class="mb-3">
             <label >Persona_id:</label>
-           <!-- <input type="number" class="form-control" placeholder="Enter persona_id" th:field="*{persona.id}"> -->
+           <!--<input type="number" class="form-control" placeholder="Enter persona_id" th:field="*{persona.id}">-->
             <select class="form-control" th:field="*{persona}">
                 <option th:each="persona : ${personas}" th:value="${persona.id}" th:text="${persona.nombre}"></option>
             </select>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
+        <button href="/personas" class="btn btn-danger">Registrar</button>
     </form>
 </div>
 

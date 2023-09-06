@@ -10,10 +10,7 @@ public class PaginaPrincipal {
     public String home(){
         return "home";
     }
-    @GetMapping("/login")
-    public String login(){
-        return "login";
-    }
+
     @GetMapping("/paginasStreaming")
     public String paginasStreaming(){
         return "paginasStreaming";
@@ -25,5 +22,14 @@ public class PaginaPrincipal {
     @GetMapping("/generos")
     public String generos(){
         return "generos";
+    }
+    @GetMapping("/logout")
+    public String salir(){
+        return "logout";
+    }
+
+    @GetMapping("/registrados")
+    public String registrados(){
+        return "registrados";
     }
 }

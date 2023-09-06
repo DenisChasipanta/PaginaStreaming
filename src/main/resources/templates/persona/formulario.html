@@ -11,10 +11,10 @@
 
 <div class="container mt-3">
     <h2>Stacked form</h2>
-    <form th:action="@{/persona/form}" method="post" th:objetct="${persona}">
+    <form th:action="@{/persona/form}" method="post" th:object="${persona}">
         <div class="mb-3 mt-3">
             <label >ID:</label>
-            <input type="number" class="form-control"  placeholder="Enter ID" th:field="*{id}">
+            <input type="number" class="form-control"  placeholder="Enter ID" th:field="*{id}" readonly="readonly">
         </div>
         <div class="mb-3">
             <label >Cédula:</label>
@@ -37,6 +37,7 @@
             <input type="email" class="form-control" placeholder="Enter email" th:field="*{email}">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="/personas" class="btn btn-danger">Registrar</a>
     </form>
 </div>
 

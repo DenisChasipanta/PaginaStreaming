@@ -5,6 +5,8 @@ import com.Chasipanta.Proyecto.entidades.Persona;
 import com.Chasipanta.Proyecto.repositorios.CuentaRepositorio;
 import com.Chasipanta.Proyecto.repositorios.PersonaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +23,13 @@ public class CuentaControlador {
     CuentaRepositorio cuentaRepositorio;
     @Autowired
     PersonaRepositorio personaRepositorio;
+/*
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
+ */
 
     @GetMapping("/cuentas")
     public String cuenta(Model model){
@@ -33,11 +42,18 @@ public class CuentaControlador {
         model.addAttribute("cuenta",new Cuenta());
         List<Persona> personas=personaRepositorio.findAll();
         model.addAttribute("personas", personas);
-        return "/cuenta/formulario";
+        return "cuenta/formulario";
     }
     @PostMapping("/cuenta/form")
     public String crear(Cuenta cuenta){
-        cuentaRepositorio.save(cuenta);
+        Cuenta cuenta1= new Cuenta();
+        cuenta1.setId(cuenta.getId());
+        cuenta1.setUsername(cuenta.getUsername());
+        cuenta1.setRol(cuenta.getRol());
+        cuenta1.setCreacion(cuenta.getCreacion());
+        //cuenta1.setPassword(bCryptPasswordEncoder().encode(cuenta.getPassword()));
+        //cuenta1.setPassword(cuenta.getPassword());
+        cuentaRepositorio.save(cuenta1);
         return "redirect:/cuentas";
     }
 
